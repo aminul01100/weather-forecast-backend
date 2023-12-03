@@ -17,3 +17,9 @@ def get_temperature_list(params):
     response = openmeteo.weather_api(url, params=params)
     temperature_list = response[0].Hourly().Variables(0).ValuesAsNumpy().tolist()
     return temperature_list
+
+
+def get_daily_temperature(params):
+    response = openmeteo.weather_api(url, params=params)
+    daily_list = response[0].Daily().Variables(0).ValuesAsNumpy().tolist()
+    return daily_list[0]
