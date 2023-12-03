@@ -4,12 +4,12 @@ from django.views.generic import TemplateView
 from dj_rest_auth.registration.views import VerifyEmailView, ResendEmailVerificationView
 from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView, PasswordChangeView, LogoutView
 
-from users.views import GoogleLogin
+from accounts.views import GoogleLogin
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/user/', include('users.urls', namespace='users')),
+    path('api/user/', include('accounts.urls', namespace='users')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     path('resend-email/', ResendEmailVerificationView.as_view(),
