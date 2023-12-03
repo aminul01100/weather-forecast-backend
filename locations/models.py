@@ -12,7 +12,7 @@ class Division(models.Model):
 # for GIS, usage of PointField is recommended. however, this is going to be a fast forwarded POC and use some fixtures,
 # we will be using just a Decimal value field to store the coordinates
 class District(models.Model):
-    division_id = models.ForeignKey(Division, on_delete=models.CASCADE)
+    division = models.ForeignKey(Division, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     bn_name = models.CharField(max_length=255)
     lat = models.DecimalField(max_digits=22, decimal_places=16)
