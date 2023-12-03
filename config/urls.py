@@ -6,10 +6,14 @@ from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView, Pass
 
 from accounts.views import GoogleLogin
 
+api_urls = [
+    path('locations/', include('locations.urls', namespace='locations')),
+    path('user/', include('accounts.urls', namespace='users'))
+]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/user/', include('accounts.urls', namespace='users')),
+    path('api/', include(api_urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     path('resend-email/', ResendEmailVerificationView.as_view(),
@@ -26,7 +30,8 @@ urlpatterns = [
     path('user/login/google/', GoogleLogin.as_view(), name='google_login'),
 
     path('password/reset/', PasswordResetView.as_view(), name='rest_password_reset'),
-    path('password/reset/confirm/<str:uidb64>/<str:token>', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('password/reset/confirm/<str:uidb64>/<str:token>', PasswordResetConfirmView.as_view(),
+         name='password_reset_confirm'),
 
     path('password/change/', PasswordChangeView.as_view(), name='rest_password_change'),
 
