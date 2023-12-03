@@ -46,5 +46,10 @@ $ python manage.py createsuperuser
 $ python manage.py runserver
 ```
 
-6. Open a browser and go to http://localhost:8000/admin
+6. Open a new terminal and run the following command for running celery worker with beat
+```
+$ celery -A config worker -l info --beat
+```
+
+7. Open a browser and go to http://localhost:8000/admin
 
