@@ -15,7 +15,7 @@ A Django app that provides a RESTful API interface for user registration and aut
 
 Clone this repository to your local machine and rename the `.env.example` file found in the root directory of the project to `.env` and update the environment variables accordingly. Then you can start the project using Docker or manually using virtual environment.
 
-Using Docker:
+Using Docker (This is not stable yet, so please continue with the manual run):
 
 ```
 $ docker-compose up
